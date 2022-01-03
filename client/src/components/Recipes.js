@@ -1,8 +1,7 @@
 import React from 'react';
 import './Recipes.css';
-import RecipeForm from './RecipeForm';
 
-const Recipes = ({recipes, deleteRecipe, updateRecipe, createRecipe}) => {
+const Recipes = ({recipes, deleteRecipe, updateRecipe}) => {
 
     const allRecipes = recipes;
 
@@ -25,7 +24,6 @@ const Recipes = ({recipes, deleteRecipe, updateRecipe, createRecipe}) => {
         }
 
         const handleUpdateClick = () => {
-          return <RecipeForm/>
             // updateRecipe({
             //     _id:recipe._id,
             //     name:recipe.name,

@@ -50,7 +50,7 @@ db.recipes.insertMany([
     {
         name: "Mini Broccoli Pizza",
         portion: 1,
-        type: "Lunch",
+        type: "Dinner",
         protein: 20,
         carbohydrate: 9,
         fat: 25,

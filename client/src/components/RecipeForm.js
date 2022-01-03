@@ -52,12 +52,11 @@ const RecipeForm = ({createRecipe}) => {
                                 <select name="type" id="type" value={type} onChange={handleTypeChange} required>
                                     <option disabled>Select a type of meal</option>
                                     <option value="Breakfast">Breakfast</option>
-                                    <option value="Lunch">Lunch</option>
                                     <option value="Dinner">Dinner</option>
-                                    <option value="Dessert">Dessert</option>
                                     <option value="Fish">Fish</option>
                                     <option value="Meat">Meat</option>
                                     <option value="Vegetables">Vegetables</option>
+                                    <option value="Dessert">Dessert</option>
                                 </select>
                             </td>
                         </tr>
