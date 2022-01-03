@@ -5,6 +5,7 @@ db.recipes.insertMany([
     {
         name: "Flowerless Bagel",
         portion: 1,
+        day: 2,
         type: "Breakfast",
         protein: 14.9,
         carbohydrate: 2.5,
@@ -14,6 +15,7 @@ db.recipes.insertMany([
     {
         name: "Bread Roll",
         portion: 1,
+        day: 2,
         type: "Breakfast",
         protein: 13.3,
         carbohydrate: 4.4,
@@ -23,6 +25,7 @@ db.recipes.insertMany([
     {
         name: "Poached Egg With Smoked Salmon And Avocado Salsa",
         portion: 1,
+        day: 1,
         type: "Breakfast",
         protein: 23.4,
         carbohydrate: 2.6,
@@ -31,16 +34,18 @@ db.recipes.insertMany([
     },
     {
         name: "Steamed Greens With Lemon Feta",
-        portion: 1,
+        portion: 2,
+        day: 1,
         type: "Vegetables",
-        protein: 30,
-        carbohydrate: 7.4,
-        fat: 54,
-        calories: 663
+        protein: 20,
+        carbohydrate: 5.2,
+        fat: 36,
+        calories: 442
     },
     {
         name: "Asparagus And Broad Been Salad",
         portion: 1,
+        day: 2,
         type: "Vegetables",
         protein: 12,
         carbohydrate: 3.2,
@@ -50,6 +55,7 @@ db.recipes.insertMany([
     {
         name: "Mini Broccoli Pizza",
         portion: 1,
+        day: 1,
         type: "Dinner",
         protein: 20,
         carbohydrate: 9,
@@ -59,6 +65,7 @@ db.recipes.insertMany([
     {
         name: "Gyros Salad",
         portion: 1,
+        day: 2,
         type: "Dinner",
         protein: 14,
         carbohydrate: 20.1,
@@ -68,6 +75,7 @@ db.recipes.insertMany([
     {
         name: "Sausage and Veggie Frittata",
         portion: 2,
+        day: 2,
         type: "Dinner",
         protein: 40,
         carbohydrate: 10,
@@ -76,7 +84,8 @@ db.recipes.insertMany([
     },
     {
         name: "Melted Brie With Basil And Lemon Pesto",
-        portion: 1,
+        portion: 3,
+        day: 1,
         type: "Dinner",
         protein: 28.8,
         carbohydrate: 6.9,
@@ -86,6 +95,7 @@ db.recipes.insertMany([
     {
         name: "Spinach And Rocket Salad With Cream Cheese Dressing",
         portion: 1,
+        day: 1,
         type: "Dinner",
         protein: 25.5,
         carbohydrate: 6.3,
@@ -93,17 +103,9 @@ db.recipes.insertMany([
         calories: 855
     },
     {
-        name: "Grilled Ribs",
-        portion: 1,
-        type: "Meat",
-        protein: 37.3,
-        carbohydrate: 10.2,
-        fat: 44,
-        calories: 585
-    },
-    {
         name: "Chicken With Almonds",
         portion: 1,
+        day: 2,
         type: "Meat",
         protein: 25.1,
         carbohydrate: 7.6,
@@ -113,6 +115,7 @@ db.recipes.insertMany([
     {
         name: "Sausage In Curry",
         portion: 1,
+        day: 1,
         type: "Meat",
         protein: 24,
         carbohydrate: 22,
@@ -122,6 +125,7 @@ db.recipes.insertMany([
     {
         name: "Chorizo And Prawns A La Sidra",
         portion: 1,
+        day: 1,
         type: "Meat",
         protein: 54,
         carbohydrate: 13.2,
@@ -131,6 +135,7 @@ db.recipes.insertMany([
     {
         name: "Chicken Korma",
         portion: 1.5,
+        day: 2,
         type: "Meat",
         protein: 51.6,
         carbohydrate: 7.65,
@@ -140,6 +145,7 @@ db.recipes.insertMany([
     {
         name: "Chicken Kievs",
         portion: 1,
+        day: 2,
         type: "Meat",
         protein: 29.4,
         carbohydrate: 1.7,
@@ -149,6 +155,7 @@ db.recipes.insertMany([
     {
         name: "Frittata Caprese",
         portion: 1,
+        day: 1,
         type: "Dinner",
         protein: 36,
         carbohydrate: 6,
@@ -158,6 +165,7 @@ db.recipes.insertMany([
     {
         name: "Balti Coconut Fish Curry",
         portion: 2,
+        day: 2,
         type: "Dinner",
         protein: 66.8,
         carbohydrate: 11.6,
@@ -167,6 +175,7 @@ db.recipes.insertMany([
     {
         name: "Pork Roladi",
         portion: 1,
+        day: 2,
         type: "Meat",
         protein: 60.6,
         carbohydrate: 8,
@@ -176,6 +185,7 @@ db.recipes.insertMany([
     {
         name: "Prosciutto And Basil Egg Cups",
         portion: 2,
+        day: 1,
         type: "Breakfast",
         protein: 34.8,
         carbohydrate: 8,
@@ -185,6 +195,7 @@ db.recipes.insertMany([
     {
         name: "Thai Style Fish Cake",
         portion: 4,
+        day: 2,
         type: "Dinner",
         protein: 88.4,
         carbohydrate: 8,
@@ -194,7 +205,8 @@ db.recipes.insertMany([
     {
         name: "Balinese Prawn Curry",
         portion: 2,
-        type: "Fish",
+        day: 1,
+        type: "Dinner",
         protein: 38.8,
         carbohydrate: 10.6,
         fat: 26,
@@ -203,6 +215,7 @@ db.recipes.insertMany([
     {
         name: "Stuffed Zuchinni",
         portion: 3,
+        day: 1,
         type: "Dinner",
         protein: 42.9,
         carbohydrate: 8.7,
@@ -210,17 +223,9 @@ db.recipes.insertMany([
         calories: 759
     },
     {
-        name: "Chocolate Hazelnut Kisses",
-        portion: 1,
-        type: "Dessert",
-        protein: 1.1,
-        carbohydrate: 5.3,
-        fat: 5,
-        calories: 71
-    },
-    {
         name: "Smoked Chicken With Cream Sauce",
         portion: 2,
+        day: 1,
         type: "Meat",
         protein: 51,
         carbohydrate: 11,
@@ -230,7 +235,8 @@ db.recipes.insertMany([
     {
         name: "Turmeric Fish",
         portion: 2,
-        type: "Meat",
+        day: 1,
+        type: "Fish",
         protein: 23,
         carbohydrate: 0.6,
         fat: 10.6,

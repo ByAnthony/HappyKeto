@@ -1,8 +1,8 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Home from  './components/Home';
 import NavBar from './components/NavBar';
 import RecipesContainer from './containers/RecipesContainer';
+import PlanningContainer from './containers/PlanningContainer';
 import ErrorPage from './components/ErrorPage';
 
 const App = ()=> {
@@ -11,7 +11,7 @@ const App = ()=> {
     <Router>
         <NavBar/>
         <Switch>
-          <Route exact path="/" component={Home}/>     
+          <Route exact path="/" render={() => <PlanningContainer/>}/>     
           <Route path="/recipes" render={() => <RecipesContainer/>}/>
           <Route component={ErrorPage}/>
         </Switch>

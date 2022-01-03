@@ -45,6 +45,15 @@ const Recipes = ({recipes, deleteRecipe, updateRecipe}) => {
           }
         }
 
+        const days = () => {
+          if(recipe.day <= 1){
+            return recipe.day + " day";
+          }
+          else{
+            return recipe.day + " days";
+          }
+        }
+
         return <div className="recipe" key={index}>
           <table>
             <tbody>
@@ -67,7 +76,8 @@ const Recipes = ({recipes, deleteRecipe, updateRecipe}) => {
                 <td className="grams">{recipe.calories}</td>
               </tr>
               <tr>
-                <td className="portions" colSpan={4}>{portions()}</td>
+                <td className="portions" colSpan={2}>{portions()}</td>
+                <td className="portions" colSpan={2}>{days()}</td>
               </tr>
               <tr>
                 <td colSpan={2}><button className="recipes-button" type="button" onClick={handleUpdateClick}>Edit</button></td>

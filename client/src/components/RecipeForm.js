@@ -6,6 +6,7 @@ const RecipeForm = ({createRecipe}) => {
 
     const [name, setName] = useState("");
     const [portion, setPortion] = useState(1);
+    const [day, setDay] = useState(1);
     const [type, setType] = useState("");
     const [protein, setProtein] = useState(0);
     const [carbohydrate, setCarbohydrate] = useState(0);
@@ -14,6 +15,7 @@ const RecipeForm = ({createRecipe}) => {
 
     const handleNameChange = event => setName(event.target.value);
     const handlePortionChange = event => setPortion(event.target.value);
+    const handleDayChange = event => setDay(event.target.value);
     const handleTypeChange = event => setType(event.target.value);
     const handleProteinChange = event => setProtein(event.target.value);
     const handleCarbohydrateChange = event => setCarbohydrate(event.target.value);
@@ -25,6 +27,7 @@ const RecipeForm = ({createRecipe}) => {
         const recipe = {
             name,
             portion,
+            day,
             type,
             protein,
             carbohydrate,
@@ -34,6 +37,7 @@ const RecipeForm = ({createRecipe}) => {
         createRecipe(recipe);
         setName("");
         setPortion();
+        setDay();
         setType("");
         setProtein();
         setCarbohydrate();
@@ -50,13 +54,12 @@ const RecipeForm = ({createRecipe}) => {
                         <tr>
                             <td className="type" colSpan={4}>
                                 <select name="type" id="type" value={type} onChange={handleTypeChange} required>
-                                    <option disabled>Select a type of meal</option>
+                                    <option value="" disabled>Type of meal</option>
                                     <option value="Breakfast">Breakfast</option>
                                     <option value="Dinner">Dinner</option>
                                     <option value="Fish">Fish</option>
                                     <option value="Meat">Meat</option>
                                     <option value="Vegetables">Vegetables</option>
-                                    <option value="Dessert">Dessert</option>
                                 </select>
                             </td>
                         </tr>
@@ -87,9 +90,13 @@ const RecipeForm = ({createRecipe}) => {
                             </td>
                         </tr>
                         <tr>
-                            <td className="portions-form" colSpan={4}>
+                            <td className="portions-form" colSpan={2}>
                                 <label htmlFor="type">Portion:</label>
                                 <input type="number" step="any" id="portion" value={portion} onChange={handlePortionChange} required/>
+                            </td>
+                            <td className="portions-form" colSpan={2}>
+                                <label htmlFor="type">Day:</label>
+                                <input type="number" step="any" id="day" value={day} onChange={handleDayChange} required/>
                             </td>
                         </tr>
                         <tr>
