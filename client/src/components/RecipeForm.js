@@ -14,13 +14,13 @@ const RecipeForm = ({createRecipe}) => {
     const [calories, setCalories] = useState(0);
 
     const handleNameChange = event => setName(event.target.value);
-    const handlePortionChange = event => setPortion(event.target.value);
-    const handleDayChange = event => setDay(event.target.value);
+    const handlePortionChange = event => setPortion(parseFloat(event.target.value));
+    const handleDayChange = event => setDay(parseFloat(event.target.value));
     const handleTypeChange = event => setType(event.target.value);
-    const handleProteinChange = event => setProtein(event.target.value);
-    const handleCarbohydrateChange = event => setCarbohydrate(event.target.value);
-    const handleFatChange = event => setFat(event.target.value);
-    const handleCaloriesChange = event => setCalories(event.target.value);
+    const handleProteinChange = event => setProtein(parseFloat(event.target.value));
+    const handleCarbohydrateChange = event => setCarbohydrate(parseFloat(event.target.value));
+    const handleFatChange = event => setFat(parseFloat(event.target.value));
+    const handleCaloriesChange = event => setCalories(parseFloat(event.target.value));
 
     const handleSubmit = event => {
         event.preventDefault();
