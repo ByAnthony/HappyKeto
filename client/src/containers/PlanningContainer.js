@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import Planning from '../components/Planning';
 import HappyKetoService from '../services/HappyKetoService';
+import '../components/Planning.css';
 
 const PlanningContainer = () => {
 
@@ -26,9 +27,7 @@ const PlanningContainer = () => {
         <div className="main">
             <h1>Your Planning</h1>
             <div className="line"></div>
-            <div className="recipes-container">
                 <Planning recipesList={recipesList}/>
-            </div>
         </div>
     );
 

@@ -1,0 +1,54 @@
+.planning-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 40px;
+    padding: 0 0 100px 0;
+}
+.planning{
+    width: 40%;
+    padding: 30px 0 30px 0;
+    text-align: center;
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 15px;
+}
+.table-week{
+    width: 100%;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    border-collapse: collapse;
+}
+.day{
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-bottom: 30px;
+}
+.meal-type{
+    padding-top: 35px;
+    width: 50%;
+    font-size: 12px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.menu{
+    padding: 10px 0 10px 0;
+    font-weight: 500;
+}
+.macro{
+    padding-top: 20px;
+    width: 25%;
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+    background-color: rgba(255,255,255,0.2);
+}
+.total-gram{
+    padding: 5px 0 20px 0;
+    font-size: 18px;
+    background-color: rgba(255,255,255,0.2);
+}
