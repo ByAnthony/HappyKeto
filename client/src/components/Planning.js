@@ -1,167 +1,166 @@
 import React, {useState, useEffect} from 'react';
 import Monday from './Monday';
+import Tuesday from './Tuesday';
+import Wednesday from './Wednesday';
+import Thursday from './Thursday';
+import Friday from './Friday';
 
-const Planning = ({recipesList}) => {
+const Planning = ({typicalBreakfast, weekendBreakfast, possibleDinner}) => {
 
-    const [updatedRecipes, setUpdatedRecipes] = useState([]);
-    const [monday, setMonday] = useState([]);
-    // const [tuesday, setTuesday] = useState([]);
-    // const [wednesday, setWednesday] = useState([]);
-    // const [thursday, setThursday] = useState([]);
-    // const [friday, setFriday] = useState([]);
+    const [breakfastMonFri, setbreakfastMonFri] = useState([]);     // 1
+    const [breakfastList, setBreakfastList] = useState([]);         // 2
+    const [dinnerList, setDinnerList] = useState([]);               // 3
+
+    const [monday, setMonday] = useState([]);                       // 4
+    const [tuesday, setTuesday] = useState([]);                     // 5
+    const [wednesday, setWednesday] = useState([]);                 // 6
+    const [thursday, setThursday] = useState([]);                   // 7
+    const [friday, setFriday] = useState([]);                       // 8
     // const [saturday, setSaturday] = useState([]);
     // const [sunday, setSunday] = useState([]);
- 
+
     useEffect(() => {
-        setUpdatedRecipes(recipesList)
-    }, [recipesList]);
+        setbreakfastMonFri(typicalBreakfast)
+    }, [typicalBreakfast]);
+
+    useEffect(() => {
+        setBreakfastList(weekendBreakfast)
+    }, [weekendBreakfast]);
+
+    useEffect(() => {
+        setDinnerList(possibleDinner)
+    }, [possibleDinner]);
 
     const handleClick = function(){
         onClick();
     };
     
     const onClick = function(){
-        const breakfast = findTypicalBreakfast(updatedRecipes);
-        const dinnerRecipes = matchDinnerWithTypicalBreakfast(updatedRecipes);
-        const dinner = new Array(dinnerRecipes[Math.floor(Math.random() * dinnerRecipes.length)]);
-        const mondayMenu = [...breakfast, ...dinner];
+        findMenu();
+    }
+
+    const findMenu = function(){
+        const breakfast = breakfastMonFri;
+
+        const dinners = dinnerList;
+        const dinnerMonday = new Array(dinners[0]);
+        let dinnerTuesday = new Array();
+        if(dinnerMonday[0].day === 2){
+            dinnerTuesday = new Array(dinners[0]);
+        }else{
+            dinnerTuesday = new Array(dinners[1]);
+        }
+        let dinnerWednesday = new Array();
+        if(dinnerTuesday[0].day === 2){
+            dinnerWednesday = new Array(dinners[1]);
+        }else{
+            dinnerWednesday = new Array(dinners[2]);
+        }
+        let dinnerThursday = new Array();
+        if(dinnerWednesday[0].day === 2){
+            dinnerThursday = new Array(dinners[2]);
+        }else{
+            dinnerThursday = new Array(dinners[3]);
+        }
+        let dinnerFriday = new Array();
+        if(dinnerWednesday[0].day === 2){
+            dinnerFriday = new Array(dinners[3]);
+        }else{
+            dinnerFriday = new Array(dinners[4]);
+        }
+
+        const mondayMenu = [...breakfast, ...dinnerMonday];
+        monday.push(mondayMenu)
         setMonday(mondayMenu);
+
+        const tuesdayMenu = [...breakfast, ...dinnerTuesday];
+        tuesday.push(tuesdayMenu)
+        setTuesday(tuesdayMenu);
+
+        const wednesdayMenu = [...breakfast, ...dinnerWednesday];
+        wednesday.push(wednesdayMenu)
+        setWednesday(wednesdayMenu);
+
+        const thursdayMenu = [...breakfast, ...dinnerThursday];
+        thursday.push(thursdayMenu)
+        setThursday(thursdayMenu);
+
+        const fridayMenu = [...breakfast, ...dinnerFriday];
+        friday.push(fridayMenu)
+        setFriday(fridayMenu);
+
+        removeDinnerFromList(dinnerMonday);
+        removeDinnerFromList(dinnerTuesday);
+        removeDinnerFromList(dinnerWednesday);
+        removeDinnerFromList(dinnerThursday);
+        removeDinnerFromList(dinnerFriday);
     }
 
-    const findRecipesByType = function(recipes, meal){
-        const recipesByType = recipes.filter(recipe => recipe.type === meal);
-        return recipesByType;
-    }
-
-    const findTypicalBreakfast = function(recipes){
-        const breakfastRecipes = findRecipesByType(recipes, "Breakfast");
-        const typicalBreakfast = breakfastRecipes.filter(recipe => recipe.name === "Sausage And Egg Salad");
-        return typicalBreakfast;
-    }
-
-    const matchDinnerWithTypicalBreakfast = function(recipes){
-        const dinnerRecipes = findRecipesByType(recipes, "Dinner");
-        let possibleDinner = dinnerRecipes
-        dinnerRecipes.filter(function(recipe){
-            const index = dinnerRecipes.indexOf(recipe);
-            if(recipe.protein > 68.8){
-                dinnerRecipes.splice(index, 1);
-            }
-            else if(recipe.carbohydrate > 20.1){
-                dinnerRecipes.splice(index, 1);
-            }
-            else if(recipe.fat > 70.9){
-                dinnerRecipes.splice(index, 1);
-            }
-            return possibleDinner;
-        })
-        return possibleDinner;
-    }
-
-    // function findBreakfastRecipes(recipes){
-    //     const breakfast = recipes.filter(recipe => recipe.type === "Breakfast");
-    //     const indexSausageEggSalad = breakfast.indexOf(recipes.name === "Sausage And Egg Salad");
-    //     breakfast.splice(indexSausageEggSalad, 1);
-    //     return breakfast;
-    // }
-
-    // const recipesForDinner = findRecipesByType(allRecipes, "Dinner");
-    // const recipesForFish = findRecipesByType(allRecipes, "Fish");
-    // const recipesForMeat = findRecipesByType(allRecipes, "Meat");
-    // const recipesForVegetables = findRecipesByType(allRecipes, "Vegetables");
-
-    // function typicalBreakfast(recipes){
-    //     const sausageAndEggSalad = recipes.find(recipe => recipe.name === "Sausage And Egg Salad");
-    //     return sausageAndEggSalad;
-    // }
-
-    // const breakfastMondayToFriday = new Array(typicalBreakfast(recipesForBreakfast));
-    // const mondayDinner = recipesForDinner[Math.floor(Math.random() * recipesForDinner.length)];
-    // const dinner = recipesForDinner[Math.floor(Math.random() * recipesForDinner.length)];
-    // // const mondayMenu = [...dinner, ...mondayDinner];
-
-    // function addProtein(recipes){
-    //     const totalProtein = recipes.reduce((total, recipe) => recipe.protein + total, 0.0);
-    //     return totalProtein
-    // }
-
-    // const mondayProtein = addProtein([dinner, mondayDinner]);
-
-    // const mondayBreakfast = new Array(mondayBreakfastRecipe(recipesForBreakfast));
-    // const mondayDinner = new Array(recipesForDinner[Math.floor(Math.random() * recipesForDinner.length)]);
-    // const mondayMenu = [...mondayBreakfast, ...mondayDinner];
+    const removeDinnerFromList = function(recipe){
+        const copiedDinnerList = [...dinnerList];
+        copiedDinnerList.splice(recipe, 1);
+        setDinnerList(copiedDinnerList);
+    };
 
     return(
         <>
-        <button onClick={() => {handleClick()}} type="button">Plan your week</button>
+        <button className="submit-plan" onClick={() => {handleClick()}} type="button">Plan Your Week</button>
         <div className="planning-container">
-            <div className='planning'>
-                <table className='table-week'>
+            <div className="planning">
+                <table className="table-week">
                     <tbody>
                         <tr>
-                            <th className='day' colSpan={6}>Monday</th>
-                        </tr>
+                            <td className="day">Monday</td>
                             <Monday monday={monday}/>
+                        </tr>
                     </tbody>
                 </table>
             </div>
-            <div className='planning'>
-                <table className='table-week'>
+        </div>
+        <div className="planning-container">
+            <div className="planning">
+                <table className="table-week">
                     <tbody>
                         <tr>
-                            <th className='day' colSpan={6}>Tuesday</th>
+                            <td className="day">Tuesday</td>
+                            <Tuesday tuesday={tuesday}/>
                         </tr>
-                            <Monday monday={monday}/>
                     </tbody>
                 </table>
             </div>
-            <div className='planning'>
-                <table className='table-week'>
+        </div>
+        <div className="planning-container">
+            <div className="planning">
+                <table className="table-week">
                     <tbody>
                         <tr>
-                            <th className='day' colSpan={6}>Wednesday</th>
+                            <td className="day">Wednesday</td>
+                            <Wednesday wednesday={wednesday}/>
                         </tr>
-                            <Monday monday={monday}/>
                     </tbody>
                 </table>
             </div>
-            <div className='planning'>
-                <table className='table-week'>
+        </div>
+        <div className="planning-container">
+            <div className="planning">
+                <table className="table-week">
                     <tbody>
                         <tr>
-                            <th className='day' colSpan={6}>Thursday</th>
+                            <td className="day">Thursday</td>
+                            <Thursday thursday={thursday}/>
                         </tr>
-                            <Monday monday={monday}/>
                     </tbody>
                 </table>
             </div>
-            <div className='planning'>
-                <table className='table-week'>
+        </div>
+        <div className="planning-container">
+            <div className="planning">
+                <table className="table-week">
                     <tbody>
                         <tr>
-                            <th className='day' colSpan={6}>Friday</th>
+                            <td className="day">Friday</td>
+                            <Friday friday={friday}/>
                         </tr>
-                            <Monday monday={monday}/>
-                    </tbody>
-                </table>
-            </div>
-            <div className='planning'>
-                <table className='table-week'>
-                    <tbody>
-                        <tr>
-                            <th className='day' colSpan={6}>Saturday</th>
-                        </tr>
-                            <Monday monday={monday}/>
-                    </tbody>
-                </table>
-            </div>
-            <div className='planning'>
-                <table className='table-week'>
-                    <tbody>
-                        <tr>
-                            <th className='day' colSpan={6}>Sunday</th>
-                        </tr>
-                            <Monday monday={monday}/>
                     </tbody>
                 </table>
             </div>
