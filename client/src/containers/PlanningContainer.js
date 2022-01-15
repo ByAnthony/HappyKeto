@@ -38,8 +38,22 @@ const PlanningContainer = () => {
         return breakfastWeekend;
     }
 
+    const allBreakfast = findBreakfastRecipes(recipesList);
+    const typicalBreakfast = findTypicalBreakfast(allBreakfast); 
+    const weekendBreakfast = findWeekendBreakfast(allBreakfast);
+
     const findDinnerRecipes = function(recipes){
         const dinnerRecipes = recipes.filter(recipe => recipe.type !== 'Breakfast');
+        return dinnerRecipes;
+    }
+
+    const findVegetablesRecipes = function(recipes){
+        const dinnerRecipes = recipes.filter(recipe => recipe.type === 'Vegetables');
+        return dinnerRecipes;
+    }
+
+    const filterVegetablesRecipes = function(recipes){
+        const dinnerRecipes = recipes.filter(recipe => recipe.type !== 'Vegetables');
         return dinnerRecipes;
     }
 
@@ -58,14 +72,15 @@ const PlanningContainer = () => {
         return dinnerRecipes;
     }
 
-    const allBreakfast = findBreakfastRecipes(recipesList);
-    const typicalBreakfast = findTypicalBreakfast(allBreakfast); 
-    const weekendBreakfast = findWeekendBreakfast(allBreakfast);
+    const dinnersAndSide = findDinnerRecipes(recipesList);
+    const allDinner = filterVegetablesRecipes(dinnersAndSide);
 
-    const allDinner = findDinnerRecipes(recipesList);
+    const vegetablesSide = findVegetablesRecipes(dinnersAndSide);
+
     const proteinFilterDinner = filterProteinDinner(allDinner);
     const carbsFilterDinner = filterCarbsDinner(proteinFilterDinner);
     const fatFilterDinner = filterFatDinner(carbsFilterDinner);
+
     const possibleDinner = fatFilterDinner
         .sort(function(){ return .5 - Math.random() })
         .slice(0, 5);
@@ -75,7 +90,7 @@ const PlanningContainer = () => {
             <h1>Your Planning</h1>
             <div className="line"></div>
                 <div className="planner">
-                    <Planning typicalBreakfast={typicalBreakfast} weekendBreakfast={weekendBreakfast} possibleDinner={possibleDinner}/>
+                    <Planning typicalBreakfast={typicalBreakfast} weekendBreakfast={weekendBreakfast} vegetablesSide={vegetablesSide} possibleDinner={possibleDinner}/>
                 </div>
         </div>
     );
