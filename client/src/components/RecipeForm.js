@@ -59,7 +59,7 @@ const RecipeForm = ({createRecipe}) => {
                                     <option value="Dinner">Dinner</option>
                                     <option value="Fish">Fish</option>
                                     <option value="Meat">Meat</option>
-                                    <option value="Vegetables">Vegetables</option>
+                                    <option value="Side">Side</option>
                                 </select>
                             </td>
                         </tr>

@@ -29,12 +29,12 @@ const PlanningContainer = () => {
     }
 
     const findTypicalBreakfast = function(recipes){
-        const typicalBreakfast = recipes.filter(recipe => recipe.name === 'Sausage And Egg Salad');
+        const typicalBreakfast = recipes.filter(recipe => recipe.name === 'Sausage And Egg');
         return typicalBreakfast;
     }
 
     const findWeekendBreakfast = function(recipes){
-        const breakfastWeekend = recipes.filter(recipe => recipe.name !== 'Sausage And Egg Salad');
+        const breakfastWeekend = recipes.filter(recipe => recipe.name !== 'Sausage And Egg');
         return breakfastWeekend;
     }
 
@@ -47,13 +47,13 @@ const PlanningContainer = () => {
         return dinnerRecipes;
     }
 
-    const findVegetablesRecipes = function(recipes){
-        const dinnerRecipes = recipes.filter(recipe => recipe.type === 'Vegetables');
+    const findSideRecipes = function(recipes){
+        const dinnerRecipes = recipes.filter(recipe => recipe.type === 'Side');
         return dinnerRecipes;
     }
 
-    const filterVegetablesRecipes = function(recipes){
-        const dinnerRecipes = recipes.filter(recipe => recipe.type !== 'Vegetables');
+    const filterSideRecipes = function(recipes){
+        const dinnerRecipes = recipes.filter(recipe => recipe.type !== 'Side');
         return dinnerRecipes;
     }
 
@@ -73,9 +73,9 @@ const PlanningContainer = () => {
     }
 
     const dinnersAndSide = findDinnerRecipes(recipesList);
-    const allDinner = filterVegetablesRecipes(dinnersAndSide);
+    const allDinner = filterSideRecipes(dinnersAndSide);
 
-    const vegetablesSide = findVegetablesRecipes(dinnersAndSide);
+    const side = findSideRecipes(dinnersAndSide);
 
     const proteinFilterDinner = filterProteinDinner(allDinner);
     const carbsFilterDinner = filterCarbsDinner(proteinFilterDinner);
@@ -90,7 +90,7 @@ const PlanningContainer = () => {
             <h1>Your Planning</h1>
             <div className="line"></div>
                 <div className="planner">
-                    <Planning typicalBreakfast={typicalBreakfast} weekendBreakfast={weekendBreakfast} vegetablesSide={vegetablesSide} possibleDinner={possibleDinner}/>
+                    <Planning typicalBreakfast={typicalBreakfast} weekendBreakfast={weekendBreakfast} side={side} possibleDinner={possibleDinner}/>
                 </div>
         </div>
     );

@@ -5,7 +5,7 @@ import Wednesday from './Wednesday';
 import Thursday from './Thursday';
 import Friday from './Friday';
 
-const Planning = ({typicalBreakfast, weekendBreakfast, possibleDinner, vegetablesSide}) => {
+const Planning = ({typicalBreakfast, weekendBreakfast, possibleDinner, side}) => {
 
     const [breakfastMonFri, setbreakfastMonFri] = useState([]);     // 1
     const [breakfastList, setBreakfastList] = useState([]);         // 2
@@ -33,8 +33,8 @@ const Planning = ({typicalBreakfast, weekendBreakfast, possibleDinner, vegetable
     }, [possibleDinner]);
 
     useEffect(() => {
-        setSideList(vegetablesSide)
-    }, [vegetablesSide]);
+        setSideList(side)
+    }, [side]);
 
     const handleClick = function(){
         onClick();
@@ -146,7 +146,7 @@ const Planning = ({typicalBreakfast, weekendBreakfast, possibleDinner, vegetable
                     <tbody>
                         <tr>
                             <td className="day">Tuesday</td>
-                            <Tuesday tuesday={tuesday}/>
+                            <Tuesday tuesday={tuesday} sideList={sideList}/>
                         </tr>
                     </tbody>
                 </table>
@@ -158,7 +158,7 @@ const Planning = ({typicalBreakfast, weekendBreakfast, possibleDinner, vegetable
                     <tbody>
                         <tr>
                             <td className="day">Wednesday</td>
-                            <Wednesday wednesday={wednesday}/>
+                            <Wednesday wednesday={wednesday} sideList={sideList}/>
                         </tr>
                     </tbody>
                 </table>
@@ -170,7 +170,7 @@ const Planning = ({typicalBreakfast, weekendBreakfast, possibleDinner, vegetable
                     <tbody>
                         <tr>
                             <td className="day">Thursday</td>
-                            <Thursday thursday={thursday}/>
+                            <Thursday thursday={thursday} sideList={sideList}/>
                         </tr>
                     </tbody>
                 </table>
@@ -182,7 +182,7 @@ const Planning = ({typicalBreakfast, weekendBreakfast, possibleDinner, vegetable
                     <tbody>
                         <tr>
                             <td className="day">Friday</td>
-                            <Friday friday={friday}/>
+                            <Friday friday={friday} sideList={sideList}/>
                         </tr>
                     </tbody>
                 </table>
