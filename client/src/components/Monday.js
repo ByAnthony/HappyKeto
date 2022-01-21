@@ -1,6 +1,6 @@
 import React from "react";
 
-const Monday = ({monday, sideList}) => {
+const Monday = ({monday, sideList, updateMonday}) => {
 
     function subtractProtein(recipes){
         const totalProtein = recipes.reduce((total, recipe) => total + recipe.protein, 0);
@@ -45,6 +45,12 @@ const Monday = ({monday, sideList}) => {
         return dinnerRecipes;
     }
 
+    // const handleUpdateMonday = function(){
+    //     const copiedMonday = [...monday];
+    //     copiedMonday.push(side);
+    //     updateMonday(copiedMonday);
+    // }
+
     const sides = sideList;
 
     const remainingProtein = subtractProtein(monday);
@@ -62,8 +68,10 @@ const Monday = ({monday, sideList}) => {
     const recipesType = monday.map(recipe => recipe.type);
     if(recipesType.includes('Meat')){
         Array.prototype.push.apply(monday, side);
+        // handleUpdateMonday();
     }else if(recipesType.includes('Fish')){
         Array.prototype.push.apply(monday, side);
+        // handleUpdateMonday();
     }
 
     const breakfast = monday.slice(0, 1);

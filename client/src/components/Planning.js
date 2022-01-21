@@ -134,7 +134,7 @@ const Planning = ({typicalBreakfast, weekendBreakfast, possibleDinner, side}) =>
                     <tbody>
                         <tr>
                             <td className="day">Monday</td>
-                            <Monday monday={monday} sideList={sideList}/>
+                            <Monday monday={monday} sideList={sideList} updateMonday={setMonday}/>
                         </tr>
                     </tbody>
                 </table>
